@@ -56,7 +56,7 @@ class DigitalSigner {
         Security.addProvider(provider)
     }
 
-    fun signXML(xmlDocument: String?, includeKeyInfo: Boolean): String? {
+    fun signXML(xmlDocument: String, includeKeyInfo: Boolean): String {
         return try {
             // Parse the input XML
             val dbf = DocumentBuilderFactory.newInstance()

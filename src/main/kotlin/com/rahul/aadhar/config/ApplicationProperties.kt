@@ -33,4 +33,7 @@ class ApplicationProperties {
 
     @Value("\${publicKeyFile}")
     lateinit var publicKeyFile: String
+
+    @Value("\${authServerUrl}")
+    lateinit var authServerUrl: String
 }

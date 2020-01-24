@@ -39,7 +39,11 @@ class Pid(private val wadh: String = "", private val otp: String) {
         """.trimIndent()
     }
 
+    fun toXmlRequestAsByteArray() : ByteArray {
+        return toXmlRequest().toByteArray()
+    }
+
     fun getSha256HashOfXmlRequest() : ByteArray {
-        return HashGenerator.generateSha256Hash(toXmlRequest().toByteArray())!!
+        return HashGenerator.generateSha256Hash(toXmlRequest())
     }
 }

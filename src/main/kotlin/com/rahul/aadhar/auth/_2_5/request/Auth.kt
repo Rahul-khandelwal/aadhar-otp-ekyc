@@ -1,5 +1,8 @@
 package com.rahul.aadhar.auth._2_5.request
 
+import com.rahul.aadhar.utils.Encryptor
+import java.util.*
+
 /**
  * Auth Request format -
  *
@@ -14,16 +17,22 @@ package com.rahul.aadhar.auth._2_5.request
  */
 class Auth(private val UID: String, private val auaCode: String, private val asaCode: String,
            private val txnId: String, private val auaLicenseKey: String,
-           private val encodedSessionKey: ByteArray, private val pid: Pid) {
+           encryptor: Encryptor, pid: Pid) {
 
     private val rc = "Y" // User consent
     private val tid = "" // As we are not using biometrics
     private val version = "2.5"
     private val uses = Uses()
     private val device = Device()
-    private val sKey = Skey(encodedSessionKey)
-    private val hmac = Hmac("") // TODO
-    private val data = Data("".toByteArray()) // TODO
+
+    private val sessionKey = encryptor.generateSessionKey()
+    private val sKey = Skey(encryptor.encryptSessionKeyUsingPublicKey(sessionKey), encryptor.getCertificateIdentifier())
+
+    private val encryptedHashPid = encryptor.encryptDataUsingSessionKey(sessionKey, pid.getSha256HashOfXmlRequest())
+    private val hmac = Hmac(Base64.getEncoder().encode(encryptedHashPid))
+
+
+    private val data = Data(Base64.getEncoder().encode(encryptor.encryptDataUsingSessionKey(sessionKey, pid.toXmlRequestAsByteArray())))
 
     fun toXmlRequest() : String {
         return """

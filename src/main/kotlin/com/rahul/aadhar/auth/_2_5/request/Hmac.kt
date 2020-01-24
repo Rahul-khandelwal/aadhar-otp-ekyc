@@ -9,7 +9,7 @@ package com.rahul.aadhar.auth._2_5.request
  * Then encrypt using session key
  * Then encode using base-64 encoding
  */
-class Hmac(private val encodedHmacData: String) {
+class Hmac(private val encodedHmacData: ByteArray) {
 
     fun toXmlRequest() : String {
         return """

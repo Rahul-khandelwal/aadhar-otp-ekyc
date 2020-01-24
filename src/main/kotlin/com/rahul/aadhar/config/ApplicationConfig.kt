@@ -4,6 +4,7 @@ import org.springframework.context.annotation.Configuration
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
 import com.rahul.aadhar.utils.DigitalSigner
+import com.rahul.aadhar.utils.Encryptor
 import org.springframework.beans.factory.config.ConfigurableBeanFactory
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Scope
@@ -37,4 +38,8 @@ class ApplicationConfig {
     @Bean
     @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
     fun digitalSigner() : DigitalSigner = DigitalSigner()
+
+    @Bean
+    @Scope(ConfigurableBeanFactory.SCOPE_SINGLETON)
+    fun encryptor() : Encryptor = Encryptor()
 }

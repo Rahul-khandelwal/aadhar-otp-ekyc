@@ -30,4 +30,7 @@ class ApplicationProperties {
 
     @Value("\${otpServerUrl}")
     lateinit var otpServerUrl: String
+
+    @Value("\${publicKeyFile}")
+    lateinit var publicKeyFile: String
 }

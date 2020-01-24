@@ -25,6 +25,6 @@ class AuthController {
             return "Invalid Aadhar Number"
         }
 
-        return authService.authenticate(data["uid"] as String, data["otp"].toString())
+        return authService.authenticate(data["uid"] as String, data["otp"].toString(), data["txnId"] as String)
     }
 }

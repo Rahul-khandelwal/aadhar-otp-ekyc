@@ -5,7 +5,6 @@ import com.rahul.aadhar.auth._2_5.request.Pid
 import com.rahul.aadhar.config.ApplicationProperties
 import com.rahul.aadhar.utils.DigitalSigner
 import com.rahul.aadhar.utils.Encryptor
-import com.rahul.aadhar.utils.getOtpTxnId
 import com.rahul.aadhar.utils.postSignedRequest
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
@@ -26,11 +25,11 @@ class AuthService {
     @Autowired
     private lateinit var applicationProperties: ApplicationProperties
 
-    fun authenticate(uid: String, otp: String) : String {
+    fun authenticate(uid: String, otp: String, otpTxnId: String) : String {
         val pidRequest = Pid(otp = otp)
 
         val authRequest = Auth(uid, applicationProperties.auaCode, applicationProperties.asaCode,
-                getOtpTxnId(applicationProperties.auaCode), applicationProperties.auaLicenseKey, encryptor, pidRequest)
+                otpTxnId, applicationProperties.auaLicenseKey, encryptor, pidRequest)
 
         val uriString = applicationProperties.authServerUrl + "/" + applicationProperties.auaCode +
                 "/" + uid[0] + "/" + uid[1] + "/" + applicationProperties.asaLicenseKey

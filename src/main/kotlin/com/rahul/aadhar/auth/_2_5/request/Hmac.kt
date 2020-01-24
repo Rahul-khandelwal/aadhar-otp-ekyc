@@ -13,7 +13,7 @@ class Hmac(private val encodedHmacData: ByteArray) {
 
     fun toXmlRequest() : String {
         return """
-            <Hmac>${encodedHmacData}</Hmac>
+            <Hmac>${String(encodedHmacData)}</Hmac>
         """.trimIndent()
     }
 }

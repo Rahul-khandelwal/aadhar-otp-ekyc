@@ -10,7 +10,7 @@ class Data(private val encryptedPid: ByteArray) {
 
     fun toXmlRequest() : String {
         return """
-            <Data>${encryptedPid}</Data>
+            <Data>${String(encryptedPid)}</Data>
         """.trimIndent()
     }
 }

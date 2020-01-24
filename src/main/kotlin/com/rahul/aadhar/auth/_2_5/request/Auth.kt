@@ -14,7 +14,7 @@ package com.rahul.aadhar.auth._2_5.request
  */
 class Auth(private val UID: String, private val auaCode: String, private val asaCode: String,
            private val txnId: String, private val auaLicenseKey: String,
-           private val encodedSessionKey: ByteArray) {
+           private val encodedSessionKey: ByteArray, private val pid: Pid) {
 
     private val rc = "Y" // User consent
     private val tid = "" // As we are not using biometrics

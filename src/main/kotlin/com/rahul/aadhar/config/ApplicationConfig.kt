@@ -3,7 +3,7 @@ package com.rahul.aadhar.config
 import org.springframework.context.annotation.Configuration
 import com.fasterxml.jackson.databind.ObjectMapper
 import com.fasterxml.jackson.module.kotlin.registerKotlinModule
-import com.rahul.aadhar.otp.DigitalSigner
+import com.rahul.aadhar.utils.DigitalSigner
 import org.springframework.beans.factory.config.ConfigurableBeanFactory
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Scope

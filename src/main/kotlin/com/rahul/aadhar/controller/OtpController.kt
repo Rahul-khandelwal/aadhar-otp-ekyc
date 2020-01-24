@@ -1,6 +1,6 @@
 package com.rahul.aadhar.controller
 
-import com.rahul.aadhar.otp.Verhoeff
+import com.rahul.aadhar.utils.Verhoeff
 import com.rahul.aadhar.service.OtpService
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.PostMapping

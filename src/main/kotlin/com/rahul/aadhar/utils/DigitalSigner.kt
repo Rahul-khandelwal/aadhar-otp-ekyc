@@ -1,4 +1,4 @@
-package com.rahul.aadhar.otp
+package com.rahul.aadhar.utils
 
 import com.rahul.aadhar.config.ApplicationProperties
 import org.bouncycastle.jce.provider.BouncyCastleProvider

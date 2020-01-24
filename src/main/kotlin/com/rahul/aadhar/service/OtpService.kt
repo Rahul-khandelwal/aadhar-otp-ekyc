@@ -1,8 +1,8 @@
 package com.rahul.aadhar.service
 
 import com.rahul.aadhar.config.ApplicationProperties
-import com.rahul.aadhar.otp.DigitalSigner
-import com.rahul.aadhar.otp._2_5.Otp
+import com.rahul.aadhar.utils.DigitalSigner
+import com.rahul.aadhar.otp._2_5.request.Otp
 import com.rahul.aadhar.utils.getOtpTxnId
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpEntity
